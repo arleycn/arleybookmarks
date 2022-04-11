@@ -67,7 +67,7 @@ summary {
 .search_btn {
     outline: 0;
     border: none;
-    background: #ffffff0d none;
+    background: #ffffff9e none;
     color: rgba(0,0,0,.6);
     padding: 5px 10px 5px 10px;
     height: 30px;
@@ -308,7 +308,7 @@ th {
   }
 }
 footer.main-footer .go-up {
-  width: 50px;
+  width: 66px;
   float: right;
   position: fixed;
   right: -10px;

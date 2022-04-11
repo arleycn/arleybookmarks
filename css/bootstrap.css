@@ -308,7 +308,7 @@ th {
   }
 }
 footer.main-footer .go-up {
-  width: 50px;
+  width: 100px;
   float: right;
   position: fixed;
   right: -10px;

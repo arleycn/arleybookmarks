@@ -2454,9 +2454,9 @@ footer.main-footer .go-up {
   font-size: 20px;
 }
 footer.main-footer .go-up a {
-  display: inline-block;
-  background-color: #03b8cfad;
-  padding: 0px 5px;
+    display: inline-block;
+    background-color: #03b8cfad;
+    padding: 0px 5px;
 }
 footer.main-footer .go-up a:hover {
   background-color: rgba(44, 46, 47, 0.1);
@@ -7918,7 +7918,7 @@ img.img-cirlce {
 [class*="fa-"] {
   display: inline-block;
   font: normal normal normal 14px/1 FontAwesome;
-  font-size: inherit;
+  font-size: initial;
   text-rendering: auto;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;

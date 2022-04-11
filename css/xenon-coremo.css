@@ -937,7 +937,7 @@ body {
   display: table-cell;
   position: relative;
   width: 280px;
-  background: #ffffff00;
+  background: #ffffffd9;
   z-index: 1;
 }
 .sidebar-menu .logo-env {
@@ -4727,7 +4727,7 @@ body.chat-open #chat {
 }
 .panel {
   position: relative;
-  background: #ffffff40;
+  background: #ffffffc7;
   padding: 20px 30px;
   border: 0;
   margin-bottom: 30px;
@@ -7916,7 +7916,7 @@ img.img-cirlce {
 [class*="fa-"] {
   display: inline-block;
   font: normal normal normal 14px/1 FontAwesome;
-  font-size: inherit;
+  font-size: initial;
   text-rendering: auto;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
