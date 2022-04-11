@@ -937,7 +937,7 @@ body {
   display: table-cell;
   position: relative;
   width: 280px;
-  background: #d0e6f700;
+  background: #ffffffba;
   z-index: 1;
 }
 .sidebar-menu .logo-env {
@@ -1319,12 +1319,12 @@ body {
   }
   .sidebar-menu.collapsed .main-menu > li > ul {
     position: absolute;
-    background: #fefffb47;
+    background: #ffffffba;
     width: 250px;
     top: 0;
     left: 100%;
     text-align: left;
-    border-radius: 5%;
+    border-radius: 3px;
     backdrop-filter: blur(5px);
   }
   .page-body.right-sidebar .sidebar-menu.collapsed .main-menu > li > ul {
@@ -4728,14 +4728,13 @@ body.chat-open #chat {
 }
 .panel {
     position: relative;
-    background: #ffffff94;
+    background: #ffffffd9;
     padding: 20px 30px;
     border: 0;
     margin-bottom: 30px;
     -webkit-box-shadow: none;
     -moz-box-shadow: none;
     box-shadow: none;
-    backdrop-filter: blur(5px);
     border-radius: 5px;
 }
 .panel.panel-headerless .panel-body {
@@ -6472,8 +6471,9 @@ label.cbr-inline + .cbr-inline {
   color: #fff;
 }
 .label.label-info {
-  background-color: #40bbea;
-  color: #fff;
+    background-color: #5a5a5a;
+    color: #fff;
+    border-radius: 3px;
 }
 .label.label-warning {
   background-color: #ffba00;

@@ -34,6 +34,36 @@ summary {
     opacity: 0.7;
     z-index: -1;
 }
+#reward {
+    margin-top: 25px;
+    border: 0px solid white;
+    cursor: pointer;
+    background-color: #e92843;
+    color: white;
+    border-radius: 5px;
+    width: 88px;
+    height: 36px;
+    font-size: 21px;
+}
+#qrcode img {
+    position: absolute;
+    top: 36%;
+    left: 30%;
+    width: 150px;
+    height: 150px;
+    display: block;
+    border-radius: 5px;
+}
+#qrcode {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgb(0 0 0 / 62%);
+    z-index: 9999;
+    display: none;
+}
 .search_btn {
     outline: 0;
     border: none;
@@ -1511,6 +1541,7 @@ blockquote {
   margin: 0 0 18px;
   font-size: 16.25px;
   border-left: 5px solid #eee;
+  text-align: center;
 }
 blockquote p:last-child,
 blockquote ul:last-child,

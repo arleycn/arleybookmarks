@@ -6469,8 +6469,9 @@ label.cbr-inline + .cbr-inline {
   color: #fff;
 }
 .label.label-info {
-  background-color: #40bbea;
-  color: #fff;
+    background-color: #5a5a5a;
+    color: #fff;
+    border-radius: 3px;
 }
 .label.label-warning {
   background-color: #ffba00;
