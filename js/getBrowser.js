@@ -15,14 +15,14 @@
             document.write('<link rel="stylesheet" href="css/bootstrapmo.css">');
             document.write('<link rel="stylesheet" href="css/xenon-coremo.css">');
             document.write('<link rel="stylesheet" href="css/xenon-componentsmo.css">');
-            document.write('<div id="bg" style="background-image: url(https://pan.arley.cn/api/raw/?path=/pic/mobg.jpg)"></div>');
+            document.write('<div id="bg" style="background-image: url(https://moapi.arley.cn/api)"></div>');
             return 'phone';
         } else {
             console.log(" %c Bookmarks By Arley %c https://arley.cn/ ", "color: #ffffff; background: #6ea9e5;  border-radius: 5px; padding:5px;", "padding:5px;"),
             document.write('<link rel="stylesheet" href="css/bootstrap.css">');
             document.write('<link rel="stylesheet" href="css/xenon-core.css">');
             document.write('<link rel="stylesheet" href="css/xenon-components.css">');
-            document.write('<div id="bg" style="background-image: url(https://pan.arley.cn/api/raw/?path=/pic/pcbg1.jpg)"></div>');
+            document.write('<div id="bg" style="background-image: url(https://pcapi.arley.cn/api)"></div>');
             return 'pc';
             }
         }
