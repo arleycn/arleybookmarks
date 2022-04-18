@@ -15,7 +15,7 @@
             document.write('<link rel="stylesheet" href="css/bootstrapmo.css">');
             document.write('<link rel="stylesheet" href="css/xenon-coremo.css">');
             document.write('<link rel="stylesheet" href="css/xenon-componentsmo.css">');
-            document.write('<div id="bg" style="background-image: url(https://120.53.244.110/mopicapi/)"></div>');
+            document.write('<div id="bg" style="background-image: url(https://moapi.arley.cn/api)"></div>');
             return 'phone';
         } else {
             console.log(" %c Bookmarks By Arley %c https://arley.cn/ ", "color: #ffffff; background: #6ea9e5;  border-radius: 5px; padding:5px;", "padding:5px;"),
