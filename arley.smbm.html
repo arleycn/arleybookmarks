@@ -1,0 +1,807 @@
+<!-- ．．＿＿＿＿．╭╮╭╮．＿＿＿＿．．．
+．．＿．．．╭－┴┴★╮＿．．．．．．
+．．＿．．．│◎　　︵│＿．．．．．．
+．．．※※※╰○－－○╯※※※．．．．
+．．．．．．．欢迎~．．．．．．．．
+．．．★ARLEY'B BOOKMARKS★．．． -->
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover, user-scalable=yes">
+    <meta name="keywords" content="arley,导航,网址,书签导航">
+    <meta name="description" content="Arley's | 私密导航">
+    <link rel="icon" type="image/png" sizes="16x16" href="heart-pink-16.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="heart-pink-32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="heart-pink-96.png">
+    <link rel="icon" type="image/x-icon" href="heart-icon.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-heart-pink.png">
+    <link rel="shortcut icon" type="image/x-icon" href="heart-icon.ico">
+    <title>Arley's | 私密导航</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --pink-deep: #f9a8d4;
+            --pink-soft: #fbcfe8;
+            --pink-mist: #fdf2f8;
+            --pink-glass: rgba(255, 245, 250, 0.75);
+            --pink-card-bg: rgba(255, 248, 252, 0.85);
+            --shadow-sm: 0 8px 20px rgba(244, 114, 182, 0.12);
+            --border-glow: 1px solid rgba(249, 168, 212, 0.4);
+            --text-dark: #831843;
+            --text-soft: #9d174d;
+        }
+
+        body {
+            background: #fee9f2;  /* 柔和粉底 */
+            font-family: system-ui, -apple-system, 'Segoe UI', 'Roboto', 'Helvetica Neue', sans-serif;
+            min-height: 100vh;
+            transition: background 0.2s ease;
+        }
+
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #ffe4f0;
+            border-radius: 10px;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #f9a8d4;
+            border-radius: 10px;
+        }
+
+        .lock-screen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url("images/bgsm.png") center/cover no-repeat fixed;
+            z-index: 2000;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            backdrop-filter: blur(2px);
+        }
+
+        .lock-card {
+            background: rgba(255, 245, 250, 0.82);
+            backdrop-filter: blur(16px);
+            border-radius: 2rem;
+            padding: 2rem 1.8rem;
+            width: 90%;
+            max-width: 380px;
+            text-align: center;
+            box-shadow: 0 20px 35px rgba(219, 39, 119, 0.2), 0 0 0 1px rgba(255, 215, 235, 0.6);
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255, 220, 240, 0.7);
+        }
+
+        .lock-card h2 {
+            font-size: 1.9rem;
+            margin-bottom: 0.5rem;
+            color: #9e2c6f;
+            letter-spacing: -0.3px;
+            font-weight: 600;
+            text-shadow: 0 1px 1px rgba(255,255,240,0.5);
+        }
+
+        .lock-card p {
+            color: #b13e7c;
+            margin-bottom: 1.5rem;
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        .lock-card input {
+            width: 100%;
+            padding: 0.85rem 1rem;
+            font-size: 1rem;
+            border: 1px solid #fbcfe8;
+            border-radius: 3rem;
+            background: rgba(255, 255, 255, 0.8);
+            outline: none;
+            text-align: center;
+            font-family: monospace;
+            transition: 0.2s;
+            color: #831843;
+        }
+
+        .lock-card input:focus {
+            border-color: #f472b6;
+            box-shadow: 0 0 0 3px rgba(244, 114, 182, 0.25);
+            background: white;
+        }
+
+        .lock-card button {
+            width: 100%;
+            padding: 0.85rem;
+            background: #db2777;
+            color: white;
+            border: none;
+            border-radius: 3rem;
+            font-weight: 600;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: 0.2s;
+            margin-top: 0.6rem;
+            box-shadow: 0 4px 8px rgba(219, 39, 119, 0.2);
+        }
+
+        .lock-card button:hover {
+            background: #be185d;
+            transform: scale(0.98);
+        }
+
+        .error {
+            color: #e11d48;
+            font-size: 0.8rem;
+            margin-top: 0.8rem;
+            font-weight: 500;
+        }
+
+        .success {
+            color: #be185d;
+            font-size: 0.8rem;
+        }
+
+        .main-content {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 1.8rem 1.5rem 3rem;
+            background: url('https://images.unsplash.com/photo-1529634597503-139d372c1e5b?q=80&w=1974&auto=format') center/cover fixed;
+            min-height: 100vh;
+        }
+
+        .glass-wrapper {
+            background: rgba(255, 245, 250, 0.65);
+            backdrop-filter: blur(10px);
+            border-radius: 2rem;
+            padding: 1.2rem 1.5rem 2rem;
+            box-shadow: 0 12px 30px rgba(219, 39, 119, 0.1);
+            border: 1px solid rgba(255, 225, 240, 0.8);
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 2rem;
+            position: relative;
+        }
+
+        .header h1 {
+            font-size: 2rem;
+            background: linear-gradient(135deg, #be185d, #f472b6);
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+            font-weight: 700;
+            letter-spacing: -0.3px;
+        }
+
+        .header p {
+            color: #9d174d;
+            font-weight: 500;
+            margin-top: 0.2rem;
+            font-size: 0.85rem;
+            opacity: 0.9;
+        }
+
+        .header-actions {
+            position: absolute;
+            top: 0;
+            right: 0;
+            display: flex;
+            gap: 0.7rem;
+        }
+
+        .action-btn {
+            background: rgba(255, 235, 245, 0.9);
+            backdrop-filter: blur(4px);
+            border: 1px solid #fbcfe8;
+            padding: 0.4rem 0.9rem;
+            border-radius: 2.5rem;
+            cursor: pointer;
+            font-size: 0.75rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.3rem;
+            transition: 0.2s;
+            color: #b8326f;
+            font-weight: 500;
+        }
+
+        .action-btn:hover {
+            background: #fce7f3;
+            transform: translateY(-2px);
+            border-color: #f9a8d4;
+        }
+
+        .action-btn.logout {
+            background: rgba(254, 226, 235, 0.9);
+            color: #e11d48;
+        }
+
+        .action-btn.logout:hover {
+            background: #ffe4ec;
+        }
+
+        .bookmark-section {
+            background: var(--pink-card-bg);
+            backdrop-filter: blur(8px);
+            border-radius: 1.5rem;
+            padding: 1.2rem 1.5rem;
+            margin-bottom: 1.8rem;
+            box-shadow: var(--shadow-sm);
+            border: var(--border-glow);
+            transition: all 0.2s;
+        }
+
+        .section-title {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            padding-left: 0.5rem;
+            border-left: 5px solid #f472b6;
+            color: #9e2c6f;
+        }
+
+        .bookmark-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.8rem;
+            align-items: center;
+        }
+
+        .bookmark-card {
+            background: rgba(255, 250, 252, 0.9);
+            padding: 0.5rem 1.1rem;
+            border-radius: 2.5rem;
+            text-decoration: none;
+            color: #a12362;
+            font-weight: 500;
+            font-size: 0.9rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.55rem;
+            transition: all 0.2s ease;
+            border: 1px solid #fbcfe8;
+            box-shadow: 0 1px 2px rgba(0,0,0,0.02);
+        }
+
+        .bookmark-card:hover {
+            transform: translateY(-3px);
+            background: white;
+            border-color: #f9a8d4;
+            box-shadow: 0 8px 18px rgba(219, 39, 119, 0.12);
+            color: #be185d;
+        }
+
+        .delete-btn {
+            margin-left: 5px;
+            color: #f43f5e;
+            cursor: pointer;
+            font-size: 0.7rem;
+            opacity: 0;
+            transition: 0.15s;
+        }
+
+        .bookmark-card:hover .delete-btn {
+            opacity: 1;
+        }
+
+        .add-btn {
+            background: #fce7f3;
+            border: 1px solid #f9a8d4;
+            padding: 0.3rem 0.9rem;
+            border-radius: 2rem;
+            cursor: pointer;
+            font-size: 0.8rem;
+            color: #b13e7c;
+            font-weight: 500;
+            transition: 0.2s;
+        }
+
+        .add-btn:hover {
+            background: #fbcfe8;
+            transform: scale(0.96);
+        }
+
+        .back-to-top {
+            position: fixed;
+            bottom: 24px;
+            right: 24px;
+            background: #f9a8d4cc;
+            backdrop-filter: blur(10px);
+            border: none;
+            width: 46px;
+            height: 46px;
+            border-radius: 30px;
+            font-size: 1.3rem;
+            cursor: pointer;
+            color: #831843;
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 12px rgba(190, 24, 93, 0.2);
+            transition: all 0.2s;
+        }
+
+        .back-to-top:hover {
+            background: #f472b6dd;
+            transform: translateY(-3px);
+            color: white;
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 2rem;
+            padding-top: 1rem;
+            font-size: 0.7rem;
+            color: #b13e7c;
+            border-top: 1px solid #fbcfe8;
+        }
+
+        .modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(219, 39, 119, 0.25);
+            backdrop-filter: blur(5px);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 3000;
+        }
+
+        .modal-content {
+            background: #fff7fc;
+            border-radius: 1.5rem;
+            padding: 1.5rem;
+            width: 90%;
+            max-width: 340px;
+            border: 1px solid #fbcfe8;
+            box-shadow: 0 20px 30px rgba(0,0,0,0.1);
+        }
+
+        .modal-content h3 {
+            color: #be185d;
+            margin-bottom: 0.8rem;
+        }
+
+        .modal-content input {
+            width: 100%;
+            padding: 0.6rem;
+            margin: 0.5rem 0;
+            border: 1px solid #fbcfe8;
+            border-radius: 2rem;
+            background: #fff0f7;
+        }
+
+        .modal-buttons {
+            display: flex;
+            gap: 0.6rem;
+            margin-top: 1rem;
+        }
+
+        .modal-buttons button {
+            flex: 1;
+            padding: 0.5rem;
+            border: none;
+            border-radius: 2rem;
+            cursor: pointer;
+            background: #fce7f3;
+            color: #a12362;
+            font-weight: 500;
+        }
+
+        .modal-buttons button:first-child {
+            background: #f472b6;
+            color: white;
+        }
+
+        .loading {
+            display: inline-block;
+            width: 14px;
+            height: 14px;
+            border: 2px solid #fff;
+            border-radius: 50%;
+            border-top-color: transparent;
+            animation: spin 0.6s linear infinite;
+            margin-right: 6px;
+            vertical-align: middle;
+        }
+
+        @keyframes spin { to { transform: rotate(360deg); } }
+
+        /* 手机端细腻适配 */
+        @media (max-width: 640px) {
+            .main-content {
+                padding: 1rem;
+            }
+            .glass-wrapper {
+                padding: 0.8rem 1rem 1.5rem;
+            }
+            .header h1 {
+                font-size: 1.6rem;
+            }
+            .header-actions {
+                position: relative;
+                justify-content: flex-end;
+                margin-bottom: 0.6rem;
+                gap: 0.5rem;
+            }
+            .header {
+                display: flex;
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            /* 调整手机头部布局 */
+            .header {
+                flex-direction: row;
+                flex-wrap: wrap;
+                justify-content: space-between;
+                align-items: center;
+            }
+            .header-actions {
+                position: static;
+            }
+            .section-title {
+                font-size: 1.2rem;
+            }
+            .bookmark-card {
+                font-size: 0.8rem;
+                padding: 0.4rem 0.9rem;
+            }
+            .back-to-top {
+                width: 40px;
+                height: 40px;
+                bottom: 18px;
+                right: 18px;
+                font-size: 1.1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div id="lockScreen" class="lock-screen" style="display: none;">
+    <div class="lock-card" id="lockCard">
+    </div>
+</div>
+
+<div id="mainContent" class="main-content" style="display: none;">
+    <div class="glass-wrapper">
+        <div class="header">
+            <div class="header-actions">
+                <button class="action-btn" id="changePwdBtn">✨ 修改密码</button>
+                <button class="action-btn logout" id="logoutBtn">🌸 退出登录</button>
+            </div>
+            <h1>🍰 私密导航 · 粉意书签</h1>
+            <p>珍藏多年 | 且用且珍惜</p>
+        </div>
+
+        <div class="bookmark-section">
+            <div class="section-title">
+                <span>📖 我的珍藏站点</span>
+                <button class="add-btn" id="addBtn">+ 添加书签</button>
+            </div>
+            <div id="bookmarkGrid" class="bookmark-grid"></div>
+        </div>
+        <div class="footer">
+            💗 COPYRIGHT @ 2026 ARLEY 丨 萌ICP备<a href="https://icp.gov.moe/?keyword=20222555" target="_blank" rel="noopener external nofollow noreferrer"><strong>20222555</strong>号</a>
+        </div>
+    </div>
+</div>
+
+<button id="backToTop" class="back-to-top" title="返回顶部">🎀</button>
+
+<script>
+    const WORKER_URL = 'https://sm.arley.cn';
+    
+    const STORAGE_KEY = 'nav_unlocked';
+
+    // ---------- API 调用 ----------
+    async function apiCall(endpoint, options = {}) {
+        const response = await fetch(`${WORKER_URL}${endpoint}`, {
+            ...options,
+            headers: { 'Content-Type': 'application/json', ...options.headers }
+        });
+        const data = await response.json().catch(() => ({}));
+        if (!response.ok) {
+            throw new Error(data.error || `HTTP ${response.status}`);
+        }
+        return data;
+    }
+
+    async function checkPasswordExists() {
+        const result = await apiCall('/check-password');
+        return result.hasPassword;
+    }
+
+    async function setupPassword(password) {
+        await apiCall('/setup', { method: 'POST', body: JSON.stringify({ password }) });
+    }
+
+    async function verifyPassword(password) {
+        const result = await apiCall('/verify', { method: 'POST', body: JSON.stringify({ password }) });
+        return result.success;
+    }
+
+    async function loadBookmarks() {
+        const result = await apiCall('/bookmarks');
+        return result.bookmarks || [];
+    }
+
+    async function addBookmark(name, url, icon) {
+        const result = await apiCall('/bookmarks', { method: 'POST', body: JSON.stringify({ name, url, icon }) });
+        return result.bookmark;
+    }
+
+    async function deleteBookmark(id) {
+        await apiCall('/bookmarks', { method: 'DELETE', body: JSON.stringify({ id }) });
+    }
+
+    async function changePassword(newPassword) {
+        await apiCall('/password', { method: 'POST', body: JSON.stringify({ newPassword }) });
+    }
+
+    let currentBookmarks = [];
+
+    function renderBookmarks() {
+        const grid = document.getElementById('bookmarkGrid');
+        if (!grid) return;
+        if (currentBookmarks.length === 0) {
+            grid.innerHTML = '<div style="color:#b34e7a; padding:1rem;">✨ 暂无书签，点击上方添加～</div>';
+            return;
+        }
+        grid.innerHTML = '';
+        currentBookmarks.forEach(b => {
+            const link = document.createElement('a');
+            link.className = 'bookmark-card';
+            link.href = b.url;
+            link.target = '_blank';
+            link.rel = 'noopener noreferrer';
+            link.innerHTML = `${b.icon || '🔖'} ${escapeHtml(b.name)} <span class="delete-btn" data-id="${b.id}">💔</span>`;
+            link.addEventListener('click', (e) => {
+                if (e.target.classList.contains('delete-btn')) {
+                    e.preventDefault();
+                    handleDelete(b.id);
+                }
+            });
+            grid.appendChild(link);
+        });
+    }
+
+    function escapeHtml(str) {
+        return str.replace(/[&<>]/g, function(m) {
+            if (m === '&') return '&amp;';
+            if (m === '<') return '&lt;';
+            if (m === '>') return '&gt;';
+            return m;
+        });
+    }
+
+    async function handleDelete(id) {
+        if (!confirm('确定移除这个书签吗？')) return;
+        await deleteBookmark(id);
+        currentBookmarks = await loadBookmarks();
+        renderBookmarks();
+    }
+
+    function showAddModal() {
+        const modal = document.createElement('div');
+        modal.className = 'modal';
+        modal.innerHTML = `
+            <div class="modal-content">
+                <h3>🌸 添加新书签</h3>
+                <input type="text" id="modalName" placeholder="网站名称" autocomplete="off">
+                <input type="url" id="modalUrl" placeholder="网址 (https://...)" autocomplete="off">
+                <input type="text" id="modalIcon" placeholder="图标 emoji (默认🔖)" maxlength="4">
+                <div class="modal-buttons">
+                    <button id="modalConfirm">添加</button>
+                    <button id="modalCancel">取消</button>
+                </div>
+            </div>
+        `;
+        document.body.appendChild(modal);
+        const confirmBtn = document.getElementById('modalConfirm');
+        const cancelBtn = document.getElementById('modalCancel');
+        const nameInp = document.getElementById('modalName');
+        const urlInp = document.getElementById('modalUrl');
+        const iconInp = document.getElementById('modalIcon');
+        const close = () => modal.remove();
+
+        confirmBtn.onclick = async () => {
+            const name = nameInp.value.trim();
+            const url = urlInp.value.trim();
+            const icon = iconInp.value.trim() || '🔖';
+            if (!name || !url) { alert('请填写完整信息'); return; }
+            if (!url.startsWith('http')) { alert('网址需以 http:// 或 https:// 开头'); return; }
+            confirmBtn.disabled = true;
+            confirmBtn.innerHTML = '<span class="loading"></span>添加中';
+            await addBookmark(name, url, icon);
+            currentBookmarks = await loadBookmarks();
+            renderBookmarks();
+            close();
+        };
+        cancelBtn.onclick = close;
+    }
+
+    function showChangePasswordModal() {
+        const modal = document.createElement('div');
+        modal.className = 'modal';
+        modal.innerHTML = `
+            <div class="modal-content">
+                <h3>🎀 修改密码</h3>
+                <input type="password" id="newPwd1" placeholder="新密码 (至少4位)" autocomplete="off">
+                <input type="password" id="newPwd2" placeholder="确认新密码" autocomplete="off">
+                <div id="modalMsg" class="error" style="margin-top:6px;"></div>
+                <div class="modal-buttons">
+                    <button id="modalConfirm">确认修改</button>
+                    <button id="modalCancel">取消</button>
+                </div>
+            </div>
+        `;
+        document.body.appendChild(modal);
+        const confirmBtn = document.getElementById('modalConfirm');
+        const cancelBtn = document.getElementById('modalCancel');
+        const pwd1 = document.getElementById('newPwd1');
+        const pwd2 = document.getElementById('newPwd2');
+        const msgDiv = document.getElementById('modalMsg');
+        const close = () => modal.remove();
+
+        confirmBtn.onclick = async () => {
+            const newPwd = pwd1.value;
+            const confirmPwd = pwd2.value;
+            if (!newPwd || newPwd.length < 4) { msgDiv.innerText = '密码至少4位'; return; }
+            if (newPwd !== confirmPwd) { msgDiv.innerText = '两次密码不一致'; return; }
+            msgDiv.innerText = '';
+            confirmBtn.disabled = true;
+            confirmBtn.innerHTML = '<span class="loading"></span>修改中';
+            await changePassword(newPwd);
+            alert('✅ 密码已更新，请重新登录');
+            close();
+            logout();
+        };
+        cancelBtn.onclick = close;
+    }
+
+    function logout() {
+        sessionStorage.removeItem(STORAGE_KEY);
+        document.getElementById('lockScreen').style.display = 'flex';
+        document.getElementById('mainContent').style.display = 'none';
+        currentBookmarks = [];
+        // 重新初始化，显示登录界面
+        showLoginUI();
+    }
+
+    function backToTop() {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    function showLoginUI() {
+        const card = document.getElementById('lockCard');
+        card.innerHTML = `
+            <h2>🔐 私密花园</h2>
+            <p>输入密码 · 轻启书签</p>
+            <input type="password" id="loginPassword" placeholder="密码" autocomplete="off">
+            <button id="loginBtn">解锁梦境</button>
+            <div id="message" class="error"></div>
+        `;
+        document.getElementById('loginBtn').onclick = async () => {
+            const pwd = document.getElementById('loginPassword').value;
+            const msgDiv = document.getElementById('message');
+            if (!pwd) { msgDiv.innerText = '请输入密码'; return; }
+            msgDiv.innerText = '';
+            const btn = document.getElementById('loginBtn');
+            btn.disabled = true;
+            btn.innerHTML = '<span class="loading"></span>验证中';
+            try {
+                const valid = await verifyPassword(pwd);
+                if (valid) {
+                    sessionStorage.setItem(STORAGE_KEY, 'true');
+                    currentBookmarks = await loadBookmarks();
+                    renderBookmarks();
+                    document.getElementById('lockScreen').style.display = 'none';
+                    document.getElementById('mainContent').style.display = 'block';
+                } else {
+                    msgDiv.innerText = '密码错误，再试试吧～';
+                }
+            } catch (err) {
+                msgDiv.innerText = '连接失败: ' + err.message;
+            } finally {
+                btn.disabled = false;
+                btn.innerHTML = '解锁梦境';
+            }
+        };
+        const inputEl = document.getElementById('loginPassword');
+        inputEl.onkeypress = (e) => { if (e.key === 'Enter') document.getElementById('loginBtn').click(); };
+    }
+
+    function showSetupUI() {
+        const card = document.getElementById('lockCard');
+        card.innerHTML = `
+            <h2>🌸 初次见面</h2>
+            <p>设置你的专属密码 (≥4位)</p>
+            <input type="password" id="setupPassword1" placeholder="输入密码" autocomplete="off">
+            <input type="password" id="setupPassword2" placeholder="确认密码" autocomplete="off">
+            <button id="setupBtn">开启私密导航</button>
+            <div id="message" class="error"></div>
+        `;
+        document.getElementById('setupBtn').onclick = async () => {
+            const p1 = document.getElementById('setupPassword1').value;
+            const p2 = document.getElementById('setupPassword2').value;
+            const msgDiv = document.getElementById('message');
+            if (!p1 || p1.length < 4) { msgDiv.innerText = '密码至少4位'; return; }
+            if (p1 !== p2) { msgDiv.innerText = '两次密码不一致'; return; }
+            msgDiv.innerText = '';
+            const btn = document.getElementById('setupBtn');
+            btn.disabled = true;
+            btn.innerHTML = '<span class="loading"></span>创建中';
+            await setupPassword(p1);
+            msgDiv.className = 'success';
+            msgDiv.innerText = '✅ 密码设置成功！重新登录吧';
+            sessionStorage.removeItem(STORAGE_KEY);
+            setTimeout(() => { showLoginUI(); }, 1300);
+        };
+    }
+
+    async function init() {
+        try {
+            const isUnlocked = sessionStorage.getItem(STORAGE_KEY);
+            
+            if (isUnlocked === 'true') {
+                currentBookmarks = await loadBookmarks();
+                renderBookmarks();
+                document.getElementById('lockScreen').style.display = 'none';
+                document.getElementById('mainContent').style.display = 'block';
+            } else {
+                document.getElementById('lockScreen').style.display = 'flex';
+                const hasPwd = await checkPasswordExists();
+                if (hasPwd) showLoginUI();
+                else showSetupUI();
+            }
+        } catch (err) {
+            document.getElementById('lockScreen').style.display = 'flex';
+            const card = document.getElementById('lockCard');
+            card.innerHTML = `
+                <h2>⚠️ 连接异常</h2>
+                <p>请检查 Worker 地址或 Upstash 配置</p>
+                <div class="error">${err.message}</div>
+                <button onclick="location.reload()" style="margin-top:1rem;">重试</button>
+            `;
+        }
+    }
+
+    function bindGlobalEvents() {
+        const changeBtn = document.getElementById('changePwdBtn');
+        const logoutBtn = document.getElementById('logoutBtn');
+        const backBtn = document.getElementById('backToTop');
+        const add = document.getElementById('addBtn');
+        if (changeBtn) changeBtn.addEventListener('click', showChangePasswordModal);
+        if (logoutBtn) logoutBtn.addEventListener('click', logout);
+        if (backBtn) backBtn.addEventListener('click', backToTop);
+        if (add) add.addEventListener('click', showAddModal);
+    }
+
+    const observer = new MutationObserver(() => {
+        if (document.getElementById('mainContent').style.display === 'block') {
+            bindGlobalEvents();
+        }
+    });
+    observer.observe(document.getElementById('mainContent'), { attributes: true, attributeFilter: ['style'] });
+
+    init();
+    setTimeout(() => bindGlobalEvents(), 200);
+</script>
+</body>
+</html>
